@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Birdy.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Pipe.gd" type="Script" id=3]
+[ext_resource path="res://Pipe.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 35.9724
@@ -16,18 +17,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 66.683, 169.244 )
-
-[sub_resource type="Gradient" id=5]
-colors = PoolColorArray( 0.0901961, 0.458824, 0.156863, 1, 0.517647, 0.870588, 0.521569, 1 )
-
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 5 )
-
-[sub_resource type="GradientTexture" id=6]
-
 [node name="Main" type="Node2D"]
+script = ExtResource( 4 )
+Pipe = ExtResource( 3 )
 
 [node name="Birdy" type="KinematicBody2D" parent="."]
 position = Vector2( 132.936, 114.551 )
@@ -45,21 +37,8 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Pipe" type="KinematicBody2D" parent="."]
-position = Vector2( 432.936, 632.396 )
-script = ExtResource( 3 )
-
-[node name="PipeCollision" type="CollisionShape2D" parent="Pipe"]
-shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="PipeSprite" type="Sprite" parent="Pipe/PipeCollision"]
-position = Vector2( 2.98023e-08, -1.78814e-07 )
-scale = Vector2( 0.0640348, 338.774 )
-texture = SubResource( 4 )
-normal_map = SubResource( 6 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 3.0
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
