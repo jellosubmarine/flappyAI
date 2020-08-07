@@ -19,6 +19,7 @@ func _on_Timer_timeout():
 	pipe_top.position = Vector2(get_viewport().size.x+26,-400+r)
 
 	pipe_bottom.set_rotation_degrees(180)
+	pipe_bottom.get_node("Pipe2D/PipeCollision/PipeSprite").set_flip_h( true )
 	pipe_bottom.position = Vector2(get_viewport().size.x+26,get_viewport().size.y+r)
 
 
