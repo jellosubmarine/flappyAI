@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export (int) var jump_speed = -8
 export (int) var gravity = 24
+signal birdy_dead
 
 var velocity = Vector2(0,0)
 
@@ -15,3 +16,6 @@ func _physics_process(delta):
 	get_input()
 	velocity.y += gravity * delta
 	move_and_collide(velocity)
+	if GlobalVariables.birdy_dead:
+		emit_signal("birdy_dead")
+		queue_free()
