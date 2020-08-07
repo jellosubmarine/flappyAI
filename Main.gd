@@ -5,7 +5,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	rng.randomize()
-	
+	GlobalVariables.birdy_dead = 0
 	
 func _on_Timer_timeout():
 	var pipe_top = Pipe.instance()
@@ -21,8 +21,12 @@ func _on_Timer_timeout():
 	pipe_bottom.set_rotation_degrees(180)
 	pipe_bottom.position = Vector2(get_viewport().size.x+26,get_viewport().size.y+r)
 
-	
+
 	
 	
 	#new_pipe.get_node("Pipe2D/PipeCollision").scale = Vector2(1, r)
 	#new_pipe.get_node("Pipe2D/PipeCollision/PipeSprite").scale = new_pipe.get_node("Pipe2D/PipeCollision/PipeSprite").scale*Vector2(1, r)
+
+
+func _on_Birdy_birdy_dead():
+	get_tree().reload_current_scene()
