@@ -9,7 +9,7 @@ var body_count = 0
 
 func _ready():
 	rng.randomize()
-	
+	print("started")
 	#Birds init
 	GlobalVariables.in_vector.resize(GlobalVariables.NO_OF_BIRDS)
 	GlobalVariables.alive_vector.resize(GlobalVariables.NO_OF_BIRDS)
@@ -56,11 +56,13 @@ func _process(_delta):
 
 
 func _on_Birdy_birdy_dead():
+	body_count += 1
 	if body_count >= GlobalVariables.NO_OF_BIRDS:
 		get_tree().reload_current_scene()
 		GlobalVariables.toppipe_h = 0
 		GlobalVariables.bottompipe_h = 0	
 		GlobalVariables.pipe_x = 133
 		body_count = 0
-	else:
-		body_count += 1
+		
+	
+	print(body_count)
