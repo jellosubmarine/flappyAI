@@ -35,8 +35,9 @@ func _physics_process(delta):
 #		queue_free()
 
 
-#func _on_VisibilityNotifier2D_viewport_exited(_viewport):
-#	die()
+func _on_VisibilityNotifier2D_viewport_exited(_viewport):
+	if GlobalVariables.alive_vector[index] == 1:
+		die()
 	
 func die():
 	GlobalVariables.alive_vector[index] = 0
