@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Birdy.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://flappy.png" type="Texture" id=2]
+[ext_resource path="res://flappy2.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 35.9724
@@ -9,7 +10,7 @@ height = 2.04549
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -25,10 +26,11 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="BirdySprite" type="AnimatedSprite" parent="BirdyCollision"]
+position = Vector2( -2.65166, -0.883911 )
+scale = Vector2( 0.437, 0.475 )
 frames = SubResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+frame = 1
+playing = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="BirdyCollision"]
 __meta__ = {
