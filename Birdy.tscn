@@ -17,7 +17,8 @@ animations = [ {
 
 [node name="Birdy" type="KinematicBody2D"]
 position = Vector2( 132.936, 378.06 )
-collision_mask = 2147483650
+collision_layer = 2
+collision_mask = 2147483649
 script = ExtResource( 1 )
 
 [node name="BirdyCollision" type="CollisionShape2D" parent="."]

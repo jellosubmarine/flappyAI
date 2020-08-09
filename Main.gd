@@ -5,11 +5,14 @@ export (PackedScene) var Pipe
 export (PackedScene) var Birdy
 var rng = RandomNumberGenerator.new()
 var score = -1
-var no_of_birdies = 2
+var body_count = 0
 
 func _ready():
 	rng.randomize()
-	for i in range(no_of_birdies):
+	
+	#Birds init
+	GlobalVariables.in_vector.resize(GlobalVariables.NO_OF_BIRDS)
+	for i in range(GlobalVariables.NO_OF_BIRDS):
 		var birdy = Birdy.instance()
 		add_child(birdy)
 		birdy.connect("birdy_dead", self, "_on_Birdy_birdy_dead")
@@ -50,7 +53,11 @@ func _process(_delta):
 
 
 func _on_Birdy_birdy_dead():
-	get_tree().reload_current_scene()
-	GlobalVariables.toppipe_h = 0
-	GlobalVariables.bottompipe_h = 0	
-	GlobalVariables.pipe_x = 133
+	if body_count >= GlobalVariables.NO_OF_BIRDS:
+		get_tree().reload_current_scene()
+		GlobalVariables.toppipe_h = 0
+		GlobalVariables.bottompipe_h = 0	
+		GlobalVariables.pipe_x = 133
+		body_count = 0
+	else:
+		body_count += 1

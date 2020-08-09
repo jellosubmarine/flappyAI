@@ -37,6 +37,11 @@ click={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="pipes"
+2d_physics/layer_2="player"
+
 [rendering]
 
 vram_compression/import_etc=true

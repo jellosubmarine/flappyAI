@@ -19,8 +19,9 @@ func _on_VisibilityNotifier2D_viewport_exited(_viewport):
 
 
 func _on_Pipe2D_body_entered(body):
-	if body.get_name() == "Birdy":
-		body.die()
-		print("ough")
+	print(body.name)
+	body.die()
+	
+	print("ough")
 		
 

@@ -25,7 +25,6 @@ func ai_input():
 
 
 func _physics_process(delta):
-	print(index)
 #	get_input()
 	ai_input()
 	if not floating:
