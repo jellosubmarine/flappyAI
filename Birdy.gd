@@ -36,9 +36,9 @@ func _physics_process(delta):
 
 
 func _on_VisibilityNotifier2D_viewport_exited(_viewport):
-	emit_signal("birdy_dead")
-	queue_free()
+	die()
 	
 func die():
+	GlobalVariables.alive_vector[index] = 0
 	emit_signal("birdy_dead")
 	queue_free()
