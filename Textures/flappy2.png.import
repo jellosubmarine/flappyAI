@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/flappy.png-65bf791a58481380efa0a3aaf004b872.stex"
+path="res://.import/flappy2.png-ec877c64fe04e5c2ba8e8be236dc1a15.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://flappy.png"
-dest_files=[ "res://.import/flappy.png-65bf791a58481380efa0a3aaf004b872.stex" ]
+source_file="res://Textures/flappy2.png"
+dest_files=[ "res://.import/flappy2.png-ec877c64fe04e5c2ba8e8be236dc1a15.stex" ]
 
 [params]
 

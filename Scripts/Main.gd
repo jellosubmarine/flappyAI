@@ -9,7 +9,6 @@ var body_count = 0
 
 func _ready():
 	rng.randomize()
-	print("started")
 	#Birds init
 	GlobalVariables.in_vector.resize(GlobalVariables.NO_OF_BIRDS)
 	GlobalVariables.alive_vector.resize(GlobalVariables.NO_OF_BIRDS)
@@ -63,6 +62,4 @@ func _on_Birdy_birdy_dead():
 		GlobalVariables.bottompipe_h = 0	
 		GlobalVariables.pipe_x = 133
 		body_count = 0
-		
-	
-	print(body_count)
+

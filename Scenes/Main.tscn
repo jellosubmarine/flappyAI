@@ -1,21 +1,21 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Birdy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Interface.gd" type="Script" id=2]
-[ext_resource path="res://Pipe.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Main.gd" type="Script" id=4]
-[ext_resource path="res://FlappyBirdRegular-9Pq0.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Controller.gd" type="Script" id=6]
-[ext_resource path="res://background.png" type="Texture" id=7]
+[ext_resource path="res://FlappyBirdRegular-9Pq0.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/Birdy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Pipe.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Textures/background.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Interface.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Controller.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
-font_data = ExtResource( 5 )
+font_data = ExtResource( 1 )
 
 [node name="Main" type="Node2D"]
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 Pipe = ExtResource( 3 )
-Birdy = ExtResource( 1 )
+Birdy = ExtResource( 2 )
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 process_priority = 600
@@ -23,7 +23,7 @@ process_priority = 600
 [node name="Interface" type="Control" parent="Canvas"]
 margin_right = 500.0
 margin_bottom = 800.0
-script = ExtResource( 2 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -44,12 +44,12 @@ wait_time = 2.0
 autostart = true
 
 [node name="Controller" type="Node2D" parent="."]
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Background" type="ParallaxBackground" parent="."]
 follow_viewport_enable = true
 
 [node name="Sprite" type="Sprite" parent="Background"]
 position = Vector2( 250.054, 400.649 )
-texture = ExtResource( 7 )
+texture = ExtResource( 4 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

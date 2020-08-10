@@ -1,8 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Birdy.gd" type="Script" id=1]
-[ext_resource path="res://flappy.png" type="Texture" id=2]
-[ext_resource path="res://flappy2.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Birdy.gd" type="Script" id=1]
+[ext_resource path="res://Textures/flappy.png" type="Texture" id=2]
+[ext_resource path="res://Textures/flappy2.png" type="Texture" id=3]
+
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 35.9724

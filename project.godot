@@ -16,12 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="FlappyAI"
-run/main_scene="res://Main.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Scenes/Main.tscn"
+config/icon="res://Textures/icon.png"
 
 [autoload]
 
-GlobalVariables="*res://GlobalVariables.gd"
+GlobalVariables="*res://Scripts/GlobalVariables.gd"
 
 [display]
 
