@@ -14,3 +14,6 @@ var pipe_x = 133
 var in_vector = []
 #0 if dead, 1 if alive
 var alive_vector = []
+#distance from the top and bottom pipes for each bird instance
+var top_pipe_dist = []
+var bottom_pipe_dist = []

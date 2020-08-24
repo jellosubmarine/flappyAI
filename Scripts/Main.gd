@@ -12,6 +12,9 @@ func _ready():
 	#Birds init
 	GlobalVariables.in_vector.resize(GlobalVariables.NO_OF_BIRDS)
 	GlobalVariables.alive_vector.resize(GlobalVariables.NO_OF_BIRDS)
+	GlobalVariables.top_pipe_dist.resize(GlobalVariables.NO_OF_BIRDS)
+	GlobalVariables.bottom_pipe_dist.resize(GlobalVariables.NO_OF_BIRDS)
+
 	for i in range(len(GlobalVariables.alive_vector)):
 		GlobalVariables.alive_vector[i] = 1
 	for i in range(GlobalVariables.NO_OF_BIRDS):
@@ -46,7 +49,7 @@ func _process(_delta):
 		get_node("Canvas/Interface/Score").text = str(0)
 	else:
 		get_node("Canvas/Interface/Score").text = str(score)
-
+	print(GlobalVariables.top_pipe_dist)
 		
 
 

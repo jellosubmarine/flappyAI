@@ -3,12 +3,10 @@
 [ext_resource path="res://Scripts/Pipe.gd" type="Script" id=1]
 [ext_resource path="res://Textures/pipe.png" type="Texture" id=2]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 50, 250 )
 
-[sub_resource type="GradientTexture" id=4]
+[sub_resource type="GradientTexture" id=2]
 
 [node name="Pipe" type="Node2D"]
 
@@ -26,7 +24,7 @@ __meta__ = {
 [node name="PipeSprite" type="Sprite" parent="Pipe2D/PipeCollision"]
 position = Vector2( 0.0634918, 0.029401 )
 texture = ExtResource( 2 )
-normal_map = SubResource( 4 )
+normal_map = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
