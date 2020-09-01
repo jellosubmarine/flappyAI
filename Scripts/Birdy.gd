@@ -11,12 +11,12 @@ var velocity = Vector2(0,0)
 
 
 
-#func get_input():
-#	var jump = Input.is_action_just_pressed('ui_select')
-#
-#	if jump:
-#		floating = 0
-#		velocity.y = jump_speed
+func get_input():
+	var jump = Input.is_action_just_pressed('ui_select')
+
+	if jump:
+		floating = 0
+		velocity.y = jump_speed
 
 func ai_input():
 	if GlobalVariables.in_vector[index]:
@@ -33,7 +33,8 @@ func _physics_process(delta):
 #	if GlobalVariables.birdy_dead:
 #		emit_signal("birdy_dead")
 #		queue_free()
-
+	GlobalVariables.top_pipe_dist[index] = self.global_position.y - GlobalVariables.toppipe_h
+	GlobalVariables.bottom_pipe_dist[index] = self.global_position.y - GlobalVariables.bottompipe_h
 
 func _on_VisibilityNotifier2D_viewport_exited(_viewport):
 	if GlobalVariables.alive_vector[index] == 1:

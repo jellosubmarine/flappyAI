@@ -4,8 +4,6 @@
 [ext_resource path="res://Textures/flappy.png" type="Texture" id=2]
 [ext_resource path="res://Textures/flappy2.png" type="Texture" id=3]
 
-
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 35.9724
 height = 2.04549
@@ -31,7 +29,6 @@ shape = SubResource( 1 )
 position = Vector2( -2.65166, -0.883911 )
 scale = Vector2( 0.437, 0.475 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="BirdyCollision"]
