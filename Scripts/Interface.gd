@@ -3,6 +3,7 @@ extends Control
 
 func _ready():
 	set_process(true)
+	$Generation.text = "Gen: " + str(GlobalVariables.generation)
 
 func _process(_delta):
 	update()

@@ -23,6 +23,7 @@ func _ready():
 		birdy.connect("birdy_dead", self, "_on_Birdy_birdy_dead")
 		birdy.position = Vector2(133,378)
 		birdy.index = i
+	_on_Timer_timeout()
 		
 	
 	
@@ -36,20 +37,19 @@ func _on_Timer_timeout():
 	pipe_top.position = Vector2(get_viewport().size.x+26,-400+r)
 	pipe_bottom.set_rotation_degrees(180)
 	pipe_bottom.get_node("Pipe2D/PipeCollision/PipeSprite").set_flip_h( true )
-	pipe_bottom.position = Vector2(get_viewport().size.x+26,get_viewport().size.y+r)
+	pipe_bottom.position = Vector2(get_viewport().size.x+26,get_viewport().size.y+r)	
 	
 	GlobalVariables.toppipe_h = pipe_top.global_position.y+pipe_top.get_node("Pipe2D/PipeCollision").get_shape().extents[1]*2
 	GlobalVariables.bottompipe_h = pipe_bottom.global_position.y-pipe_top.get_node("Pipe2D/PipeCollision").get_shape().extents[1]*2
 
-	
 	score += 1
 
 func _process(_delta):
 	if score < 0:
-		get_node("Canvas/Interface/Score").text = str(0)
+		get_node("GUI/Interface/Score").text = str(0)
 	else:
-		get_node("Canvas/Interface/Score").text = str(score)
-	print(GlobalVariables.top_pipe_dist)
+		get_node("GUI/Interface/Score").text = str(score)
+#	print(GlobalVariables.top_pipe_dist)
 		
 
 
@@ -61,8 +61,9 @@ func _on_Birdy_birdy_dead():
 	body_count += 1
 	if body_count >= GlobalVariables.NO_OF_BIRDS:
 		get_tree().reload_current_scene()
+		GlobalVariables.generation += 1
 		GlobalVariables.toppipe_h = 0
 		GlobalVariables.bottompipe_h = 0	
 		GlobalVariables.pipe_x = 133
 		body_count = 0
-
+	

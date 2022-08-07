@@ -1,6 +1,6 @@
 extends Node
 
-const NO_OF_BIRDS = 3
+const NO_OF_BIRDS = 10
 
 var score = -1
 
@@ -17,3 +17,5 @@ var alive_vector = []
 #distance from the top and bottom pipes for each bird instance
 var top_pipe_dist = []
 var bottom_pipe_dist = []
+
+var generation = 1

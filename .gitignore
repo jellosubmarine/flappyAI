@@ -10,3 +10,6 @@ data_*/
 
 *.import
 *~
+__pycache__/controller.cpython-39.pyc
+__pycache__/main.cpython-39.pyc
+__pycache__/neat_controller.cpython-39.pyc

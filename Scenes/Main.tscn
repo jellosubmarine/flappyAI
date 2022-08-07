@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://FlappyBirdRegular-9Pq0.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/Birdy.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scripts/Interface.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Controller.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/WebSocket.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -17,10 +18,10 @@ script = ExtResource( 6 )
 Pipe = ExtResource( 3 )
 Birdy = ExtResource( 2 )
 
-[node name="Canvas" type="CanvasLayer" parent="."]
+[node name="GUI" type="CanvasLayer" parent="."]
 process_priority = 600
 
-[node name="Interface" type="Control" parent="Canvas"]
+[node name="Interface" type="Control" parent="GUI"]
 margin_right = 500.0
 margin_bottom = 800.0
 script = ExtResource( 5 )
@@ -28,15 +29,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="Label" parent="Canvas/Interface"]
+[node name="Score" type="Label" parent="GUI/Interface"]
 margin_right = 71.0
 margin_bottom = 72.0
 size_flags_stretch_ratio = 3.8
 custom_fonts/font = SubResource( 1 )
+text = "0"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="Generation" type="Label" parent="GUI/Interface"]
+margin_left = 250.0
+margin_right = 499.0
+margin_bottom = 72.0
+size_flags_stretch_ratio = 3.8
+custom_fonts/font = SubResource( 1 )
+text = "Gen: 0"
+align = 1
+uppercase = true
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 0
@@ -46,10 +55,14 @@ autostart = true
 [node name="Controller" type="Node2D" parent="."]
 script = ExtResource( 7 )
 
+[node name="WebSocketNeat" type="Node" parent="Controller"]
+script = ExtResource( 8 )
+
 [node name="Background" type="ParallaxBackground" parent="."]
 follow_viewport_enable = true
 
 [node name="Sprite" type="Sprite" parent="Background"]
 position = Vector2( 250.054, 400.649 )
 texture = ExtResource( 4 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
