@@ -35,7 +35,7 @@ async def websocket_endpoint(websocket: WebSocket):
       while True:
           data = await websocket.receive_text()
           data = json.loads(data)
-          controller.x_distance = data["dist_x"]
+          controller.bird_y = data["bird_y"]
           controller.alive_vector = data["alive"]
           controller.top_distances = data["dist_top"]
           controller.bot_distances = data["dist_bot"]

@@ -55,7 +55,7 @@ func _physics_process(delta):
 	var data = {}
 	data["\"dist_top\""] = GlobalVariables.top_pipe_dist
 	data["\"dist_bot\""] = GlobalVariables.bottom_pipe_dist
-	data["\"dist_x\""] = GlobalVariables.pipe_x
+	data["\"bird_y\""] = GlobalVariables.bird_y
 	data["\"alive\""] = GlobalVariables.alive_vector
 	
 	_client.get_peer(1).put_packet(str(data).to_utf8())

@@ -28,9 +28,9 @@ func _physics_process(delta):
 #	if GlobalVariables.birdy_dead:
 #		emit_signal("birdy_dead")
 #		queue_free()
-	GlobalVariables.top_pipe_dist[index] = self.global_position.y - GlobalVariables.toppipe_h
-	GlobalVariables.bottom_pipe_dist[index] = self.global_position.y - GlobalVariables.bottompipe_h
-
+	GlobalVariables.top_pipe_dist[index] = sqrt(pow(self.global_position.y - GlobalVariables.toppipe_h,2)+pow(GlobalVariables.pipe_x,2))
+	GlobalVariables.bottom_pipe_dist[index] = sqrt(pow(self.global_position.y - GlobalVariables.bottompipe_h,2)+pow(GlobalVariables.pipe_x,2))
+	GlobalVariables.bird_y[index] = self.global_position.y
 func _on_VisibilityNotifier2D_viewport_exited(_viewport):
 	if GlobalVariables.alive_vector[index] == 1:
 		die()

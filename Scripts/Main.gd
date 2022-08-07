@@ -14,6 +14,7 @@ func _ready():
 	GlobalVariables.alive_vector.resize(GlobalVariables.NO_OF_BIRDS)
 	GlobalVariables.top_pipe_dist.resize(GlobalVariables.NO_OF_BIRDS)
 	GlobalVariables.bottom_pipe_dist.resize(GlobalVariables.NO_OF_BIRDS)
+	GlobalVariables.bird_y.resize(GlobalVariables.NO_OF_BIRDS)
 
 	for i in range(len(GlobalVariables.alive_vector)):
 		GlobalVariables.alive_vector[i] = 1
@@ -60,6 +61,7 @@ func _process(_delta):
 func _on_Birdy_birdy_dead():
 	body_count += 1
 	if body_count >= GlobalVariables.NO_OF_BIRDS:
+		get_node("Controller/WebSocketNeat")._client.disconnect_from_host()
 		get_tree().reload_current_scene()
 		GlobalVariables.generation += 1
 		GlobalVariables.toppipe_h = 0

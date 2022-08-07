@@ -19,7 +19,7 @@ class NEATControl:
     self.alive_vector = []
     self.top_distances = []
     self.bot_distances = []
-    self.x_distance = 0
+    self.bird_y = []
     self.new_data = False
     
     self.output_vector = []
@@ -51,16 +51,21 @@ class NEATControl:
         self.new_data = False
         
         self.output_vector = [0 for i in range(len(self.alive_vector))]
-        
-        for idx in range(len(self.alive_vector)):
-          input_data = [self.top_distances[idx],self.bot_distances[idx],self.x_distance]
-          output = nets[idx].activate(input_data)
-          self.output_vector[idx] = 1 if output[0] > 0 else 0
-          
+        debug_vec =  [0 for i in range(len(self.alive_vector))]
+        for idx, alive in enumerate(self.alive_vector):
+          if alive:  
+            input_data = [self.top_distances[idx],self.bot_distances[idx],self.bird_y[idx]]
+            output = nets[idx].activate(input_data)
+            # print(output)
+            debug_vec[idx] = output[0]
+            self.output_vector[idx] = 1 if output[0] > 0 else 0
+        # print(debug_vec)
+        # print(self.output_vector)
         for idx, alive in enumerate(self.alive_vector):
           if alive:
-            genomes[idx][1].fitness += 1
-            
+            genomes[idx][1].fitness += 0.1
+          else:
+            genomes[idx][1].fitness -= 0.2
         self.data_ready = True
         
         

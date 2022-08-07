@@ -10,6 +10,8 @@ var toppipe_h = 0
 var bottompipe_h = 0
 #current_pipe_location
 var pipe_x = 133
+#current bird location
+var bird_y = []
 #current input vector
 var in_vector = []
 #0 if dead, 1 if alive

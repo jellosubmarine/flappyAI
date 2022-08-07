@@ -29,6 +29,10 @@ window/size/width=500
 window/size/height=800
 window/size/resizable=false
 
+[global]
+
+debug=false
+
 [input]
 
 click={
