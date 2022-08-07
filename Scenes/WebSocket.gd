@@ -45,7 +45,7 @@ func _on_data():
 	var in_list = in_data.split(" ")
 	for i in range(len(in_list)):
 		GlobalVariables.in_vector[i] = int(in_list[i])
-	
+#	print(GlobalVariables.in_vector)
 		
 #	print("Got data from server: ", _client.get_peer(1).get_packet().get_string_from_utf8())
 	

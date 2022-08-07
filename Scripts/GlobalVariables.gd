@@ -1,6 +1,6 @@
 extends Node
 
-const NO_OF_BIRDS = 10
+const NO_OF_BIRDS = 100
 
 var score = -1
 
