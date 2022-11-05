@@ -21,8 +21,8 @@ func ai_input():
 
 
 func _physics_process(delta):
-#	get_input()
-	ai_input()
+	get_input()
+#	ai_input()
 	velocity.y += gravity * delta
 	move_and_collide(velocity)
 #	if GlobalVariables.birdy_dead:
